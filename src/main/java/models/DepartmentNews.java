@@ -1,6 +1,7 @@
 package models;
 
 import java.security.Timestamp;
+import java.util.Objects;
 
 public class DepartmentNews extends News{
 
@@ -17,5 +18,19 @@ public class DepartmentNews extends News{
 
     public void setDepartmentId(int departmentId) {
         this.departmentId = departmentId;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if(!(o instanceof DepartmentNews)) return false;
+        if(! super.equals (o)) return false;
+        DepartmentNews that = (DepartmentNews) o;
+        return departmentId = that.departmentId;
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash (super.hashCode (), departmentId);
     }
 }
