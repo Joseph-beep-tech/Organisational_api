@@ -52,4 +52,14 @@ public class Department{
     public int hashCode() {
         return Objects.hash ( id, name, description );
     }
+
+public static class DepartmentWithUserCount extends Department{
+       private int count;
+
+       public DepartmentWithUserCount(int id, String description, String name, int count){
+           super (id, description, name);
+            this.count = count;
+
+       }
+    }
 }
