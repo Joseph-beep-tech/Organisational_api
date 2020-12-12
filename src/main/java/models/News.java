@@ -58,20 +58,20 @@ public class News{
         this.postdate = postdate;
     }
 
-@Override
-public boolean equals(Object o){
-        if(this == o)return true;
-        if (!(o instanceof News))return false;
+    @Override
+    public boolean equals(Object o) {
+        if ( this == o ) return true;
+        if ( o == null || getClass () != o.getClass () ) return false;
         News news = (News) o;
         return id == news.id &&
-           userId == news.userId&&
-                Objects.equals (type, news.type)&&
-                Objects.equals (content, news.content)&&
-                Objects.equals (postdate, news.postdate);
+                userId == news.userId &&
+                Objects.equals ( type, news.type ) &&
+                Objects.equals ( content, news.content ) &&
+                Objects.equals ( postdate, news.postdate );
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hash (id, userId, type, content, postdate);
+    public int hashCode() {
+        return Objects.hash ( id, userId, type, content, postdate );
     }
 }

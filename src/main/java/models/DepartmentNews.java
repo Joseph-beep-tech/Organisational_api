@@ -21,16 +21,16 @@ public class DepartmentNews extends News{
     }
 
     @Override
-    public boolean equals(Object o){
-        if (this == o) return true;
-        if(!(o instanceof DepartmentNews)) return false;
-        if(! super.equals (o)) return false;
+    public boolean equals(Object o) {
+        if ( this == o ) return true;
+        if ( o == null || getClass () != o.getClass () ) return false;
+        if ( !super.equals ( o ) ) return false;
         DepartmentNews that = (DepartmentNews) o;
-        return departmentId = that.departmentId;
+        return departmentId == that.departmentId;
     }
 
     @Override
-    public int hashCode(){
-        return Objects.hash (super.hashCode (), departmentId);
+    public int hashCode() {
+        return Objects.hash ( super.hashCode (), departmentId );
     }
 }
