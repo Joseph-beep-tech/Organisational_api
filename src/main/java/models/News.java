@@ -69,4 +69,9 @@ public boolean equals(Object o){
                 Objects.equals (content, news.content)&&
                 Objects.equals (postdate, news.postdate);
     }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash (id, userId, type, content, postdate);
+    }
 }
