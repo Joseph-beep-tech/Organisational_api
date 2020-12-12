@@ -10,7 +10,10 @@ public class News{
     private Timestamp postdate;
 
     public News(int id, int userId, String type, String content, Timestamp postdate){
-
-
+            this.id = id;
+            this.userId = userId;
+            this.content = content;
+            this.type = type;
+            this.postdate = postdate;
     }
 }
