@@ -1,6 +1,7 @@
 package models;
 
 import java.security.Timestamp;
+import java.util.Objects;
 
 public class News{
     private int id;
@@ -57,5 +58,15 @@ public class News{
         this.postdate = postdate;
     }
 
-
+@Override
+public boolean equals(Object o){
+        if(this == o)return true;
+        if (!(o instanceof News))return false;
+        News news = (News) o;
+        return id == news.id &&
+           userId == news.userId&&
+                Objects.equals (type, news.type)&&
+                Objects.equals (content, news.content)&&
+                Objects.equals (postdate, news.postdate);
+    }
 }
