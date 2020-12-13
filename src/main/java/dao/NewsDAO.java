@@ -9,6 +9,22 @@ public interface NewsDAO{
     List<News> getAllNews();
     List<News> getGeneralNews();
     List<DepartmentNews> getDepartmentNews();
+
+    void addGeneralNews(News news);
+    void addDepartmentNews(DepartmentNews departmentNews);
+
+    News findGeneralNewsById(int id);
+    DepartmentNews findDepartmentNewsById(int id);
+
+
+
+    void updateGeneralNews(News news, int userId, String content);
+    void updateDepartmentNews(DepartmentNews dptNews, int userId, String content, int departmentId);
+
+
+    void clearAllNews();
+    void clearGeneralNews();
+    void clearDepartmentNews();
 }
 
 
