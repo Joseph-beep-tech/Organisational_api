@@ -68,6 +68,6 @@ public static class DepartmentWithUserCount extends Department{
 
     public void setCount(int count) {
         this.count = count;
+        }
     }
-}
 }
