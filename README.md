@@ -11,7 +11,7 @@
 
 ### **Application set-up**
 
-* You have an idea (preferred Intellij) -You have a idea (preferred Intellij) -Clone the repo git clone https://github.com/Joseph-beep-tech/Wildlife-tracker -Open the folder from github in your Intellij Idea -On your terminal type psql to open postgresql command shell -Create database CREATE DATABASE database_name -Connect to the DB \c database_name -Create table CREATE TABLE table_name(name varchar)
+* You have an idea (preferred Intellij) -You have a idea (preferred Intellij) -Clone the repo git clone https://github.com/Joseph-beep-tech/Organisational_api -Open the folder from github in your Intellij Idea -On your terminal type psql to open postgresql command shell -Create database CREATE DATABASE database_name -Connect to the DB \c database_name -Create table CREATE TABLE table_name(name varchar)
 
 ### **in psql:**
 
