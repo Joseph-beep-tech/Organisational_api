@@ -73,4 +73,16 @@ public class User{
     public int hashCode() {
         return Objects.hash ( id, departmentId, position, role, name );
     }
+
+    public int getUsername() {
+        return 0;
+    }
+
+    public int getUserPosition() {
+        return 0;
+    }
+
+    public int getUserRole() {
+        return 0;
+    }
 }

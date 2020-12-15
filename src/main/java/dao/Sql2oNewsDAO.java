@@ -6,7 +6,6 @@ import models.News;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Sql2oNewsDAO implements NewsDAO {
@@ -20,14 +19,16 @@ public class Sql2oNewsDAO implements NewsDAO {
         this.sql2o = sql2o;
     }
 
-    @Override
-    public List<News> getAllNews() {
+//    @Override
+//    public List<News> getAllNews() {
+//
+//        List<News> news = new ArrayList<>();
+//        news.addAll(getGeneralNews());
+//        news.addAll(getDepartmentNews());
+//        return news;
+//    }
 
-        List<News> news = new ArrayList<>();
-        news.addAll(getGeneralNews());
-        news.addAll(getDepartmentNews());
-        return news;
-    }
+
 
     @Override
     public List<News> getGeneralNews() {
@@ -51,18 +52,18 @@ public class Sql2oNewsDAO implements NewsDAO {
         }
     }
 
-    @Override
-    public void addGeneralNews(News news) {
-        String sql = "insert into news (userId,type,content,postdate) values (:userId,:type,:content,now()) ";
-        try(org.sql2o.Connection con = sql2o.open()){
-            int id = (int) con.createQuery(sql,true)
-                    .addParameter("userId",news.getUserId())
-                    .addParameter("type",news.getType())
-                    .addParameter("content",news.getContent())
-                    .executeUpdate().getKey();
-            news.setId(id);
-        }
-    }
+//    @Override
+//    public void addGeneralNews(News news) {
+//        String sql = "insert into news (userId,type,content,postdate) values (:userId,:type,:content,now()) ";
+//        try(org.sql2o.Connection con = sql2o.open()){
+//            int id = (int) con.createQuery(sql,true)
+//                    .addParameter("userId",news.getUserId())
+//                    .addParameter("type",news.getType())
+//                    .addParameter("content",news.getContent())
+//                    .executeUpdate().getKey();
+//            news.setId(id);
+//        }
+//    }
 
     @Override
     public void addDepartmentNews(DepartmentNews dptNews) {

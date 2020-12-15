@@ -75,3 +75,4 @@ public class News{
         return Objects.hash ( id, userId, type, content, postdate );
     }
 }
+

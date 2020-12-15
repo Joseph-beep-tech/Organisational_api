@@ -1,0 +1,23 @@
+CREATE DATABASE news;
+\c news
+CREATE TABLE departments(id SERIAL PRIMARY KEY,
+description VARCHAR,
+name VARCHAR
+);
+
+CREATE TABLE users(
+id SERIAL PRIMARY KEY,
+position VARCHAR,
+role VARCHAR,
+departmentId INTEGER,
+name VARCHAR
+);
+
+CREATE TABLE news(
+id SERIAL PRIMARY KEY,
+userId INTEGER,
+type VARCHAR,
+content VARCHAR
+);
+
+CREATE DATABASE news_test WITH TEMPLATE news;

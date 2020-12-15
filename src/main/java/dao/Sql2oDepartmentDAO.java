@@ -10,7 +10,7 @@ import org.sql2o.Sql2o;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Sql2oDepartmentDAO implements DepartmentDAO{   //connecting to the interface
+public abstract class Sql2oDepartmentDAO implements DepartmentDAO{   //connecting to the interface
 
 
     private final Sql2o sql2o;
@@ -24,15 +24,15 @@ public class Sql2oDepartmentDAO implements DepartmentDAO{   //connecting to the 
 
     }
 
-    @Override
-    public List<Department> getAllDepartments() {
-        String sql ="select * from departments";
-        try(Connection con = sql2o.open()){
-            return con.createQuery(sql)
-                    .executeAndFetch(Department.class);
-        }
-
-    }
+//    @Override
+//    public List<Department> getAllDepartments() {
+//        String sql ="select * from departments";
+//        try(Connection con = sql2o.open()){
+//            return con.createQuery(sql)
+//                    .executeAndFetch(Department.class);
+//        }
+//
+//    }
 
     @Override
     public List<DepartmentNews> getDepartmentNewsById(int id) {
@@ -51,17 +51,19 @@ public class Sql2oDepartmentDAO implements DepartmentDAO{   //connecting to the 
                 .collect(Collectors.toList());
     }
 
-    @Override
-    public void addDepartment(Department department) {
-        String sql = "insert into departments (name,description) values (:name,:description) ";
-        try(Connection con = sql2o.open()){
-            int id = (int) con.createQuery(sql,true)
-                    .bind(department)
-                    .executeUpdate()
-                    .getKey();
-            department.setId(id);
-        }
-    }
+//    @Override
+//    public void addDepartment(Department department) {
+//        String sql = "insert into departments (name,description) values (:name,:description) ";
+//        try(Connection con = sql2o.open()){
+//            int id = (int) con.createQuery(sql,true)
+//                    .bind(department)
+//                    .addParameter ( "Production", department.getName ())
+//                    .addParameter ( "description", department.getDescription () )
+//                    .executeUpdate()
+//                    .getKey();
+//            department.setId(id);
+//        }
+//    }
 
     @Override
     public Department findDepartmentById(int id) {
@@ -93,7 +95,7 @@ public class Sql2oDepartmentDAO implements DepartmentDAO{   //connecting to the 
     }
 
     public List<Department.DepartmentWithUserCount> getDepartmentWithUserCount(){
-        return getAllDepartments().stream()
+        return getAllDepartment().stream()
                 .map(dpt->
                         new Department.DepartmentWithUserCount(
                                 dpt.getId(),
