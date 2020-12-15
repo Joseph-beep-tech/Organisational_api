@@ -28,6 +28,7 @@ public interface DepartmentDAO{
 
     static void addDepartment(Department department) {
         return;
+
     }
 
 
