@@ -18,6 +18,19 @@ public class News{
             this.postdate = postdate;
     }
 
+    public News(String fish_witch, String s, String s1, String s2) {
+
+    }
+
+    public News(String fish_witch, String s, String s1, String s2, String s3, String s4) {
+
+
+    }
+
+    public News(String great_service, String kim, int i, int i1) {
+
+    }
+
     public int getId() {
         return id;
     }
