@@ -9,7 +9,6 @@ import models.News;
 import models.User;
 import org.sql2o.Sql2o;
 
-import static org.graalvm.compiler.nodeinfo.Verbosity.Id;
 import static spark.Spark.*;
 import org.sql2o.Connection;
 import java.util.HashMap;
