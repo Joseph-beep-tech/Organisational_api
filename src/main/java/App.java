@@ -8,6 +8,8 @@ import models.Department;
 import models.News;
 import models.User;
 import org.sql2o.Sql2o;
+
+import static org.graalvm.compiler.nodeinfo.Verbosity.Id;
 import static spark.Spark.*;
 import org.sql2o.Connection;
 import java.util.HashMap;
@@ -78,7 +80,7 @@ public class App {
 
         get("/user", "application/json", (req, res) -> {
             res.type("application/json");
-            return gson.toJson( UserDAO.getAllUsers());//send it back to be displayed
+            return gson.toJson( UserDAO.getAllUser());//send it back to be displayed
         });
         get("/department", "application/json", (req, res) -> {
             res.type("application/json");
@@ -91,8 +93,8 @@ public class App {
         });
 
         get("/user/:id", "application/json", (req, res) -> {
-            int usersId = Integer.parseInt(req.params("id"));
-            User usersToFind = dao.UserDAO.getUserById(usersId);
+            int departmentId = Integer.parseInt(req.params("id"));
+            User usersToFind = dao.UserDAO.getUserById(departmentId);
             if(usersToFind == null) {
                 throw new ApiException (404, String.format("No user with the id: \"%s\" exists", req.params("id")));
             }
